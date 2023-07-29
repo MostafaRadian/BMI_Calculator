@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:bmi_calculator/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiScreen extends StatefulWidget {
@@ -11,9 +14,7 @@ class _BmiScreenState extends State<BmiScreen> {
   double height = 180;
   int weight = 60;
   int age = 20;
-  bool gender = true;
-  var tapColor =
-      const Color.fromARGB(220, 123, 35, 187); //true =  male, false = female
+  bool gender = true; //true =  male, false = female
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,6 +195,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                       weight--;
                                     });
                                   },
+                                  heroTag: "weight-",
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
                                   child: const Icon(Icons.remove),
@@ -204,6 +206,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                       weight++;
                                     });
                                   },
+                                  heroTag: "weight+",
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
                                   child: const Icon(Icons.add),
@@ -246,6 +249,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                       age--;
                                     });
                                   },
+                                  heroTag: "age-",
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
                                   child: const Icon(Icons.remove),
@@ -256,6 +260,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                       age++;
                                     });
                                   },
+                                  heroTag: "age+",
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
                                   child: const Icon(Icons.add),
@@ -278,7 +283,18 @@ class _BmiScreenState extends State<BmiScreen> {
               ),
               height: 50,
               child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    double result = weight / pow(height / 100, 2);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BmiResult(
+                                gender: gender,
+                                height: height.round(),
+                                weight: weight,
+                                age: age,
+                                bmi: result.round())));
+                  },
                   child: const Text(
                     "CALCULATE",
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
