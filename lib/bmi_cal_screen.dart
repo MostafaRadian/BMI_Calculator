@@ -8,6 +8,10 @@ class BmiScreen extends StatefulWidget {
 }
 
 class _BmiScreenState extends State<BmiScreen> {
+  double height = 180;
+  int weight = 60;
+  int age = 20;
+  bool gender = true; //true =  male, false = female
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,14 +90,154 @@ class _BmiScreenState extends State<BmiScreen> {
                 ),
               ),
             ),
-            const Expanded(
-              child: const Column(
-                children: [],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color.fromARGB(220, 123, 35, 187)),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "HEIGHT",
+                          style: TextStyle(fontSize: 25, color: Colors.white),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              "${height.round()}",
+                              style: const TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.white),
+                            ),
+                            const Text(
+                              "cm",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            )
+                          ],
+                        ),
+                        Slider(
+                            value: height,
+                            max: 220,
+                            min: 60,
+                            activeColor: Colors.purpleAccent,
+                            onChanged: (value) {
+                              height = value;
+                            })
+                      ]),
+                ),
               ),
             ),
-            const Expanded(
-              child: Row(
-                children: [],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(220, 123, 35, 187)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "WEIGHT",
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
+                            ),
+                            Text(
+                              "$weight",
+                              style: const TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.white),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    weight -= 1;
+                                  },
+                                  mini: true,
+                                  backgroundColor: Colors.purpleAccent,
+                                  child: const Icon(Icons.remove),
+                                ),
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    weight += 1;
+                                  },
+                                  mini: true,
+                                  backgroundColor: Colors.purpleAccent,
+                                  child: const Icon(Icons.add),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(220, 123, 35, 187)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Age",
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
+                            ),
+                            Text(
+                              "${age.round()}",
+                              style: const TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.white),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    age -= 1;
+                                  },
+                                  mini: true,
+                                  backgroundColor: Colors.purpleAccent,
+                                  child: const Icon(Icons.remove),
+                                ),
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    age += 1;
+                                  },
+                                  mini: true,
+                                  backgroundColor: Colors.purpleAccent,
+                                  child: const Icon(Icons.add),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Container(
