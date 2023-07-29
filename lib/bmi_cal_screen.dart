@@ -152,7 +152,9 @@ class _BmiScreenState extends State<BmiScreen> {
                             min: 60,
                             activeColor: Colors.purpleAccent,
                             onChanged: (value) {
-                              height = value;
+                              setState(() {
+                                height = value;
+                              });
                             })
                       ]),
                 ),
@@ -188,7 +190,9 @@ class _BmiScreenState extends State<BmiScreen> {
                               children: [
                                 FloatingActionButton(
                                   onPressed: () {
-                                    weight -= 1;
+                                    setState(() {
+                                      weight--;
+                                    });
                                   },
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
@@ -196,7 +200,9 @@ class _BmiScreenState extends State<BmiScreen> {
                                 ),
                                 FloatingActionButton(
                                   onPressed: () {
-                                    weight += 1;
+                                    setState(() {
+                                      weight++;
+                                    });
                                   },
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
@@ -225,7 +231,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                   TextStyle(fontSize: 25, color: Colors.white),
                             ),
                             Text(
-                              "${age.round()}",
+                              "$age",
                               style: const TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.w900,
@@ -236,7 +242,9 @@ class _BmiScreenState extends State<BmiScreen> {
                               children: [
                                 FloatingActionButton(
                                   onPressed: () {
-                                    age -= 1;
+                                    setState(() {
+                                      age--;
+                                    });
                                   },
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
@@ -244,7 +252,9 @@ class _BmiScreenState extends State<BmiScreen> {
                                 ),
                                 FloatingActionButton(
                                   onPressed: () {
-                                    age += 1;
+                                    setState(() {
+                                      age++;
+                                    });
                                   },
                                   mini: true,
                                   backgroundColor: Colors.purpleAccent,
