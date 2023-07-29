@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 
 class BmiResult extends StatelessWidget {
@@ -19,19 +21,25 @@ class BmiResult extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios_rounded),
+          ),
           title: const Text("BMI Calculator"),
-          backgroundColor: const Color(0xFF000040),
+          backgroundColor: const Color(0xff0140a28),
           elevation: 0,
         ),
         body: Container(
             width: double.infinity,
-            color: const Color(0xFF000040),
+            color: const Color(0xff0140a28),
             child: Padding(
               padding: const EdgeInsets.all(50.0),
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: const Color.fromARGB(220, 123, 35, 187)),
+                    color: const Color(0xff321a54)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
