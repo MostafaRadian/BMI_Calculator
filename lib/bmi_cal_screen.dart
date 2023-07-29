@@ -11,7 +11,9 @@ class _BmiScreenState extends State<BmiScreen> {
   double height = 180;
   int weight = 60;
   int age = 20;
-  bool gender = true; //true =  male, false = female
+  bool gender = true;
+  var tapColor =
+      const Color.fromARGB(220, 123, 35, 187); //true =  male, false = female
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,29 +32,38 @@ class _BmiScreenState extends State<BmiScreen> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(220, 123, 35, 187)),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.male,
-                              color: Colors.white,
-                              size: 70,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "MALE",
-                              style: TextStyle(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            gender = true;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: gender
+                                  ? Colors.purpleAccent
+                                  : const Color.fromARGB(220, 123, 35, 187)),
+                          child: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.male,
                                 color: Colors.white,
-                                fontSize: 15,
+                                size: 70,
                               ),
-                            )
-                          ],
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "MALE",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -60,29 +71,38 @@ class _BmiScreenState extends State<BmiScreen> {
                       width: 20,
                     ),
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(220, 123, 35, 187)),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.female,
-                              color: Colors.white,
-                              size: 70,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "FEMALE",
-                              style: TextStyle(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            gender = false;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: !gender
+                                  ? Colors.purpleAccent
+                                  : const Color.fromARGB(220, 123, 35, 187)),
+                          child: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.female,
                                 color: Colors.white,
-                                fontSize: 15,
+                                size: 70,
                               ),
-                            )
-                          ],
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "FEMALE",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     )
