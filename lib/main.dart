@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 import 'bmi_cal_screen.dart';
 
@@ -11,7 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: BmiScreen(),
+      home: BmiResult(),
       debugShowCheckedModeBanner: false,
     );
   }
