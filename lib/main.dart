@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bmi_cal_screen.dart';
+import 'modules/bmi/bmi_cal_screen.dart';
 
 void main() {
   runApp(const MainApp());
