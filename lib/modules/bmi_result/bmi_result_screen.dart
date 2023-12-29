@@ -25,9 +25,13 @@ class BmiResult extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(Icons.arrow_back_ios_rounded),
+            icon: const Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.white,
+            ),
           ),
-          title: const Text("BMI Calculator"),
+          title: const Text("BMI Calculator",
+              style: TextStyle(color: Colors.white)),
           backgroundColor: const Color(0xff0140a28),
           elevation: 0,
         ),
